@@ -9,11 +9,16 @@ public class Fighter : MonoBehaviour
     public float range = 70f;
     public GameObject bulletEffect;
     AudioSource audioSource;
+    public int maxHealth = 100;
+    public int CurrHealth;
+    public HealthBar healthBar;
     
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        CurrHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -42,5 +47,11 @@ public class Fighter : MonoBehaviour
             }
 
         }
+    }
+
+    public void TakeDamage(int Damage)
+    {
+        CurrHealth -= damage;
+        healthBar.SetHealth(CurrHealth);
     }
 }

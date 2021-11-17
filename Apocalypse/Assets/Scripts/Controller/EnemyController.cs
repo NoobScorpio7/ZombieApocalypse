@@ -95,11 +95,11 @@ public class EnemyController : MonoBehaviour
     private void Attack()
     {
         Rigidbody rb = Instantiate(projectile,  generatePoint.position, transform.rotation).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-        rb.AddForce(transform.up * 6f, ForceMode.Impulse);
+        rb.AddForce(transform.forward * 17f, ForceMode.Impulse);
+        rb.AddForce(transform.up * 4f, ForceMode.Impulse);
         alreadyAttacked = true;
-        Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        Destroy(rb.gameObject, 1f);
+        Invoke(nameof(ResetAttack), 3f);
+        Destroy(rb.gameObject, 2f);
     }
 
     public void ResetAttack()
